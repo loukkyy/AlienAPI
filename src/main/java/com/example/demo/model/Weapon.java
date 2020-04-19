@@ -1,23 +1,23 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
+@RequiredArgsConstructor
 public class Weapon {
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String name;
-	@ManyToOne
-	private Alien alien;
+	@ManyToMany(mappedBy = "weapons")
+	private List<Alien> aliens;
 }

@@ -12,6 +12,10 @@ import com.example.demo.model.Alien;
 @RepositoryRestResource(collectionResourceRel = "aliens", path = "aliens")
 @CrossOrigin
 public interface AlienRepository extends JpaRepository<Alien, Long> {
+	
 	List<Alien> findByName(@Param("name") String name);
 	
+	/*@Override
+	@RestResource(exported = false)
+	void deleteById(Long aLong);*/
 }
