@@ -44,6 +44,9 @@ public class Alien {
 	@ManyToMany
 	private List<Weapon> weapons;
 	
+	@OneToOne(mappedBy = "alien")
+	private Address address;
+	
 	static enum Gender {
 		MALE, FEMALE;
 	}
